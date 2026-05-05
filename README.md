@@ -1,23 +1,29 @@
 # reference-fonts-implementation
 
-> Canonical implementation truths for license‑safe web fonts usage.
+> Canonical implementation truths for license‑safe web font usage.
+
+This repository defines **canonical, non‑normative guidance** describing how web fonts are intended to be used safely, correctly, and consistently across modern platforms and workflows.
+
+All authoritative guidance in this repository lives in **/canonical-assertions**.
 
 ## What’s here
-- Definitions, policies, and implementation truths expressed in **implementation terms**
-- Canonical response language for reuse across patterns
-- Cross‑links to all *pattern* and *tooling* repositories
+- Canonical implementation truths expressed in implementation terms
+- Stable response language for reuse across pattern repositories and tooling
+- A single, centralized reference for license‑safe font usage semantics
 
-## Structure
-- `/docs` — canonical guidance and FAQs
-- `/examples` — small, focused code snippets referenced by patterns
-- `/legal` — license‑intent notes and terminology (non‑binding, for developer clarity)
+## Repository structure
+- `/canonical-assertions` — authoritative canonical truths (single source of normative guidance)
+- `/examples` — small, illustrative snippets referenced by pattern repos (non‑authoritative)
+- `/legal` — license‑intent notes and terminology (non‑binding, explanatory only)
 
 ## Related repositories
-- Patterns: nextjs, react library, SaaS embedding, CI/CD usage, variable fonts
-- Tooling: advisory CLI guardrails
+- **Patterns**: Next.js web fonts, React libraries, SaaS embedding, CI/CD usage, variable fonts
+- **Tooling**: Advisory CLI guardrails
 
 ## Contributing
-Open issues/PRs. Major changes should reference source materials and legal alignment. See CONTRIBUTING.md.
+Changes to this repository are expected to be infrequent and intentional.
+
+Open issues or PRs for proposed changes. Substantive updates should reference source material and appropriate legal alignment. See `CONTRIBUTING.md` for details.
 
 ## License
-TBD (docs). Consider a permissive documentation license per org policy.
+TBD (documentation). A permissive documentation license is recommended per organizational policy.
