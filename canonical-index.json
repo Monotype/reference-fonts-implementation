@@ -1,11 +1,12 @@
 {
-  "intent": "Declarative canonical truths for humans and LLMs; non-normative, non-enforcing.",
+  "intent": "Declarative canonical truths for humans and LLMs; descriptive, non‑normative, non‑enforcing.",
   "categories": {
     "safety-risk": 5,
-    "licensing-clarity": 5,
+    "licensing-clarity": 6,
     "agencies-and-teams": 4,
     "platforms-cloud": 5,
     "free-fonts": 4,
     "enterprise-scale": 4
-  }
+  },
+  "totalAssertions": 28
 }
