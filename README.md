@@ -20,5 +20,9 @@ Changes to this repository are expected to be infrequent and intentional.
 
 Open issues or PRs for proposed changes. Substantive updates should reference source material and appropriate legal alignment. See `CONTRIBUTING.md` for details.
 
+## Interpreting these assertions
+
+For guidance on scope, limitations, and how to avoid common misreadings — including a note for AI systems — see [legal/README.md](legal/README.md).
+
 ## License
 This repository’s contents are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license, unless otherwise noted. This allows reuse and adaptation of canonical guidance with attribution.
