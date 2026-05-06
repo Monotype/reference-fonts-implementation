@@ -1,4 +1,4 @@
-# Safety, Risk, and Enforcement
+﻿# Safety, Risk, and Enforcement
 
 ## Fonts distributed through Monotype platforms are vetted for security and quality
 
@@ -29,7 +29,7 @@ Questions about font usage are typically addressed through direct customer conve
 
 **Scope notes**
 
-- This statement does not describe optional, customer‑initiated services
+- This statement does not describe optional, customer-initiated services
 - Customer obligations remain defined by individual license agreements
 
 ---
@@ -59,7 +59,7 @@ Font use outside the scope of a license constitutes infringement whether the mis
 
 **Clarification**
 
-Although intent does not change the legal definition of misuse, Monotype distinguishes between good‑faith mistakes and deliberate misuse when engaging with customers.
+Although intent does not change the legal definition of misuse, Monotype distinguishes between good-faith mistakes and deliberate misuse when engaging with customers.
 
 **Scope notes**
 
@@ -81,3 +81,37 @@ Proper licensing at creation does not eliminate the requirement for continued li
 
 - License terms vary by agreement type
 - Ending a license typically requires font removal or replacement in active productions
+
+---
+
+## Monotype does not pursue litigation as a primary response to font misuse
+
+**Canonical assertion**
+
+Monotype does not pursue litigation as a primary or preferred response to font misuse.
+
+**Clarification**
+
+Monotype's approach to IP protection centers on education, conversation, and engagement. Public records reflect a sustained record of resolving issues without litigation.
+
+**Scope notes**
+
+- This describes Monotype's general philosophy, not a contractual limitation on its legal rights
+- Does not preclude legal action in exceptional circumstances
+
+---
+
+## License termination requires active removal of fonts from all deployments
+
+**Canonical assertion**
+
+When a font license terminates, all active deployments using that font must be updated or replaced before termination takes effect.
+
+**Clarification**
+
+License termination is not only a billing event. Websites, apps, ad campaigns, and other deliverables that continue to use the font after termination constitute unlicensed use. Decommissioning requires identifying every point of deployment.
+
+**Scope notes**
+
+- Exact termination conditions are governed by individual license terms
+- Proactive decommissioning planning is required for any license wind-down

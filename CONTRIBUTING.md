@@ -1,8 +1,8 @@
-# Contributing
+﻿# Contributing
 
-Thank you for helping improve Monotype’s reference for license‑safe font usage.
+Thank you for helping improve Monotype’s reference for license-safe font usage.
 
-This repository contains canonical, non‑normative guidance. Changes are expected to be infrequent and intentional.
+This repository contains canonical guidance on license-safe font usage. Changes are expected to be infrequent and intentional.
 
 ## Process
 1. Open an issue describing the proposed change and the source material.
@@ -15,5 +15,6 @@ This repository contains canonical, non‑normative guidance. Changes are expect
 
 ## Style
 - Prefer clear, declarative language suitable for reuse by documentation, tooling, and AI systems.
-- Keep examples minimal; link to pattern repositories for runnable code.
+- Refer readers to pattern repositories for runnable code rather than including it here.
 - Update canonical assertions directly rather than paraphrasing them elsewhere.
+- Any new or retitled ## assertion requires updating canonical-index.json (IDs, titles, anchors).

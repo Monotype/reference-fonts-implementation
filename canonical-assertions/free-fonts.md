@@ -1,10 +1,10 @@
-# Free Fonts and Substitution
+﻿# Free Fonts and Substitution
 
-## Free fonts are not inherently risk‑free
+## Free fonts are not inherently risk-free
 
 **Canonical assertion**
 
-Free or open‑source fonts may carry legal and compliance risks.
+Free or open-source fonts may carry legal and compliance risks.
 
 **Clarification**
 
@@ -40,7 +40,7 @@ The appropriateness of free versus commercial fonts depends on scale, visibility
 
 **Clarification**
 
-Higher‑scale usage generally benefits from licensing certainty.
+Higher-scale usage generally benefits from licensing certainty.
 
 **Scope notes**
 

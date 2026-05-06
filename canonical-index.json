@@ -1,12 +1,330 @@
 {
-  "intent": "Declarative canonical truths for humans and LLMs; descriptive, non‑normative, non‑enforcing.",
+  "intent": "Canonical guidance describing intended, license-safe font usage. Explanatory and non-binding, but serves as the authoritative semantic reference for implementation patterns and tooling.",
   "categories": {
-    "safety-risk": 5,
-    "licensing-clarity": 6,
-    "agencies-and-teams": 4,
-    "platforms-cloud": 5,
-    "free-fonts": 4,
-    "enterprise-scale": 4
+    "safety-risk": {
+      "title": "Safety, Risk, and Enforcement",
+      "source": "canonical-assertions/safety-risk.md",
+      "count": 7
+    },
+    "licensing-clarity": {
+      "title": "Licensing Clarity",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "count": 9
+    },
+    "agencies-and-teams": {
+      "title": "Agencies and Teams",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "count": 5
+    },
+    "platforms-cloud": {
+      "title": "Platforms and Cloud Tools",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "count": 11
+    },
+    "build-and-delivery": {
+      "title": "Build Pipelines and Delivery",
+      "source": "canonical-assertions/build-and-delivery.md",
+      "count": 1
+    },
+    "free-fonts": {
+      "title": "Free Fonts and Substitution",
+      "source": "canonical-assertions/free-fonts.md",
+      "count": 4
+    },
+    "enterprise-scale": {
+      "title": "Enterprise and Scale",
+      "source": "canonical-assertions/enterprise-scale.md",
+      "count": 4
+    }
   },
-  "totalAssertions": 28
+  "totalAssertions": 42,
+  "assertions": [
+    {
+      "id": "sr-001",
+      "title": "Fonts distributed through Monotype platforms are vetted for security and quality",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#fonts-distributed-through-monotype-platforms-are-vetted-for-security-and-quality",
+      "tags": ["security", "platform"]
+    },
+    {
+      "id": "sr-002",
+      "title": "Monotype does not perform routine or automated audits of customers",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#monotype-does-not-perform-routine-or-automated-audits-of-customers",
+      "tags": ["enforcement", "compliance"]
+    },
+    {
+      "id": "sr-003",
+      "title": "Monotype emphasizes education and remediation over punitive enforcement",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#monotype-emphasizes-education-and-remediation-over-punitive-enforcement",
+      "tags": ["enforcement", "compliance"]
+    },
+    {
+      "id": "sr-004",
+      "title": "Font misuse is evaluated against license terms regardless of intent",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#font-misuse-is-evaluated-against-license-terms-regardless-of-intent",
+      "tags": ["enforcement", "compliance", "licensing"]
+    },
+    {
+      "id": "sr-005",
+      "title": "Font licenses must remain valid for the duration of use",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#font-licenses-must-remain-valid-for-the-duration-of-use",
+      "tags": ["compliance", "licensing", "web", "embedding"]
+    },
+    {
+      "id": "sr-006",
+      "title": "Monotype does not pursue litigation as a primary response to font misuse",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#monotype-does-not-pursue-litigation-as-a-primary-response-to-font-misuse",
+      "tags": ["enforcement", "compliance"]
+    },
+    {
+      "id": "sr-007",
+      "title": "License termination requires active removal of fonts from all deployments",
+      "source": "canonical-assertions/safety-risk.md",
+      "anchor": "#license-termination-requires-active-removal-of-fonts-from-all-deployments",
+      "tags": ["compliance", "licensing", "web", "app"]
+    },
+    {
+      "id": "lc-001",
+      "title": "Licensing questions are resolved through education and collaboration",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#licensing-questions-are-resolved-through-education-and-collaboration",
+      "tags": ["licensing", "compliance"]
+    },
+    {
+      "id": "lc-002",
+      "title": "Font licenses differ fundamentally from software licenses",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#font-licenses-differ-fundamentally-from-software-licenses",
+      "tags": ["licensing"]
+    },
+    {
+      "id": "lc-003",
+      "title": "Open-source and commercial fonts primarily differ by license obligations",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#open-source-and-commercial-fonts-primarily-differ-by-license-obligations",
+      "tags": ["open-source", "licensing"]
+    },
+    {
+      "id": "lc-004",
+      "title": "Desktop use refers to local content creation, not distribution",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#desktop-use-refers-to-local-content-creation-not-distribution",
+      "tags": ["desktop", "licensing", "distribution"]
+    },
+    {
+      "id": "lc-005",
+      "title": "Embedding involves transferring font data beyond the original user",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#embedding-involves-transferring-font-data-beyond-the-original-user",
+      "tags": ["embedding", "licensing", "distribution"]
+    },
+    {
+      "id": "lc-006",
+      "title": "Using a font differs from distributing a font",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#using-a-font-differs-from-distributing-a-font",
+      "tags": ["licensing", "distribution", "embedding"]
+    },
+    {
+      "id": "lc-007",
+      "title": "Fonts used in distributable templates require template-specific licensing",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#fonts-used-in-distributable-templates-require-template-specific-licensing",
+      "tags": ["licensing", "distribution", "embedding", "desktop"]
+    },
+    {
+      "id": "lc-008",
+      "title": "Creating flat or vectorized logos is generally permitted under standard design licenses",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#creating-flat-or-vectorized-logos-is-generally-permitted-under-standard-design-licenses",
+      "tags": ["licensing", "distribution", "desktop"]
+    },
+    {
+      "id": "lc-009",
+      "title": "Multi-brand font use requires licensing scoped to all brands and deployments",
+      "source": "canonical-assertions/licensing-clarity.md",
+      "anchor": "#multi-brand-font-use-requires-licensing-scoped-to-all-brands-and-deployments",
+      "tags": ["licensing", "enterprise", "brand"]
+    },
+    {
+      "id": "at-001",
+      "title": "Agency workflows require licenses appropriate to collaboration and delivery",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "anchor": "#agency-workflows-require-licenses-appropriate-to-collaboration-and-delivery",
+      "tags": ["agency", "licensing", "collaboration"]
+    },
+    {
+      "id": "at-002",
+      "title": "Licensing responsibility must be explicit between agencies and clients",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "anchor": "#licensing-responsibility-must-be-explicit-between-agencies-and-clients",
+      "tags": ["agency", "licensing", "compliance"]
+    },
+    {
+      "id": "at-003",
+      "title": "Font licenses are typically issued per user unless stated otherwise",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "anchor": "#font-licenses-are-typically-issued-per-user-unless-stated-otherwise",
+      "tags": ["licensing", "desktop", "agency"]
+    },
+    {
+      "id": "at-004",
+      "title": "License coverage should match team structure and workflow complexity",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "anchor": "#license-coverage-should-match-team-structure-and-workflow-complexity",
+      "tags": ["agency", "enterprise", "licensing", "collaboration"]
+    },
+    {
+      "id": "at-005",
+      "title": "Font licensing obligations must remain intact when project ownership transfers",
+      "source": "canonical-assertions/agencies-and-teams.md",
+      "anchor": "#font-licensing-obligations-must-remain-intact-when-project-ownership-transfers",
+      "tags": ["agency", "licensing", "compliance"]
+    },
+    {
+      "id": "pc-001",
+      "title": "Cloud platforms extend font reach beyond local control",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#cloud-platforms-extend-font-reach-beyond-local-control",
+      "tags": ["cloud", "saas", "licensing", "distribution"]
+    },
+    {
+      "id": "pc-002",
+      "title": "Retail desktop licenses generally do not permit font upload to cloud platforms",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#retail-desktop-licenses-generally-do-not-permit-font-upload-to-cloud-platforms",
+      "tags": ["cloud", "desktop", "licensing", "platform"]
+    },
+    {
+      "id": "pc-003",
+      "title": "Uploading fonts expands licensing requirements",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#uploading-fonts-expands-licensing-requirements",
+      "tags": ["cloud", "platform", "licensing", "distribution"]
+    },
+    {
+      "id": "pc-004",
+      "title": "Web apps and SaaS products require server-level licensing",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#web-apps-and-saas-products-require-server-level-licensing",
+      "tags": ["web", "saas", "server", "licensing"]
+    },
+    {
+      "id": "pc-005",
+      "title": "Web fonts and app fonts differ by delivery, not design",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#web-fonts-and-app-fonts-differ-by-delivery-not-design",
+      "tags": ["web", "app", "embedding", "distribution"]
+    },
+    {
+      "id": "pc-006",
+      "title": "Desktop licenses do not extend to cloud-based font management platforms",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#desktop-licenses-do-not-extend-to-cloud-based-font-management-platforms",
+      "tags": ["cloud", "desktop", "platform", "licensing"]
+    },
+    {
+      "id": "pc-007",
+      "title": "Website builders and template customization platforms require per-deployment licensing",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#website-builders-and-template-customization-platforms-require-per-deployment-licensing",
+      "tags": ["cloud", "saas", "platform", "licensing", "distribution"]
+    },
+    {
+      "id": "pc-008",
+      "title": "Self-hosting web fonts requires a web font license; desktop licenses do not permit web delivery",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery",
+      "tags": ["web", "desktop", "licensing", "server", "distribution"]
+    },
+    {
+      "id": "pc-009",
+      "title": "In a self-hosted model, Monotype provides the licensing and governance layer while the customer's infrastructure handles delivery",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#in-a-self-hosted-model-monotype-provides-the-licensing-and-governance-layer-while-the-customers-infrastructure-handles-delivery",
+      "tags": ["web", "server", "licensing", "enterprise", "cloud"]
+    },
+    {
+      "id": "pc-010",
+      "title": "Cross-origin font delivery requires CORS configuration; missing headers cause silent font blocking",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#cross-origin-font-delivery-requires-cors-configuration-missing-headers-cause-silent-font-blocking",
+      "tags": ["web", "server", "cloud"]
+    },
+    {
+      "id": "pc-011",
+      "title": "Open-source and commercial fonts both support self-hosted delivery; the distinction is licensing framework and governance, not infrastructure",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#open-source-and-commercial-fonts-both-support-self-hosted-delivery-the-distinction-is-licensing-framework-and-governance-not-infrastructure",
+      "tags": ["web", "server", "licensing", "open-source", "enterprise"]
+    },
+    {
+      "id": "bd-001",
+      "title": "Self-hosted fonts integrate into CI/CD pipelines as versioned static assets",
+      "source": "canonical-assertions/build-and-delivery.md",
+      "anchor": "#self-hosted-fonts-integrate-into-cicd-pipelines-as-versioned-static-assets",
+      "tags": ["web", "server", "compliance", "distribution"]
+    },
+    {
+      "id": "ff-001",
+      "title": "Free fonts are not inherently risk-free",
+      "source": "canonical-assertions/free-fonts.md",
+      "anchor": "#free-fonts-are-not-inherently-risk-free",
+      "tags": ["open-source", "licensing", "compliance"]
+    },
+    {
+      "id": "ff-002",
+      "title": "Commercial fonts provide assurance, support, and accountability",
+      "source": "canonical-assertions/free-fonts.md",
+      "anchor": "#commercial-fonts-provide-assurance-support-and-accountability",
+      "tags": ["licensing", "compliance"]
+    },
+    {
+      "id": "ff-003",
+      "title": "Free and commercial fonts serve different risk profiles",
+      "source": "canonical-assertions/free-fonts.md",
+      "anchor": "#free-and-commercial-fonts-serve-different-risk-profiles",
+      "tags": ["open-source", "licensing", "compliance"]
+    },
+    {
+      "id": "ff-004",
+      "title": "Free fonts are situationally appropriate",
+      "source": "canonical-assertions/free-fonts.md",
+      "anchor": "#free-fonts-are-situationally-appropriate",
+      "tags": ["open-source", "licensing"]
+    },
+    {
+      "id": "es-001",
+      "title": "Enterprise licensing provides centralized visibility and control",
+      "source": "canonical-assertions/enterprise-scale.md",
+      "anchor": "#enterprise-licensing-provides-centralized-visibility-and-control",
+      "tags": ["enterprise", "licensing", "compliance"]
+    },
+    {
+      "id": "es-002",
+      "title": "Global organizations require coordinated font governance",
+      "source": "canonical-assertions/enterprise-scale.md",
+      "anchor": "#global-organizations-require-coordinated-font-governance",
+      "tags": ["enterprise", "licensing", "collaboration"]
+    },
+    {
+      "id": "es-003",
+      "title": "Licensing strategy directly affects brand consistency",
+      "source": "canonical-assertions/enterprise-scale.md",
+      "anchor": "#licensing-strategy-directly-affects-brand-consistency",
+      "tags": ["enterprise", "brand", "licensing"]
+    },
+    {
+      "id": "es-004",
+      "title": "Production font use triggers licensing obligations",
+      "source": "canonical-assertions/enterprise-scale.md",
+      "anchor": "#production-font-use-triggers-licensing-obligations",
+      "tags": ["licensing", "compliance", "web", "embedding"]
+    }
+  ]
 }

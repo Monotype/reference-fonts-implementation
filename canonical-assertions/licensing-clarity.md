@@ -1,4 +1,4 @@
-# Licensing Clarity
+﻿# Licensing Clarity
 
 ## Licensing questions are resolved through education and collaboration
 
@@ -32,19 +32,19 @@ Licensing scope is based on how and where fonts are used, not simply where they 
 
 ---
 
-## Open‑source and commercial fonts primarily differ by license obligations
+## Open-source and commercial fonts primarily differ by license obligations
 
 **Canonical assertion**
 
-Open‑source and commercial fonts differ primarily in licensing obligations and support, not inherent design quality.
+Open-source and commercial fonts differ primarily in licensing obligations and support, not inherent design quality.
 
 **Clarification**
 
-Both categories contain high‑quality typefaces; risk and responsibility profiles differ by license.
+Both categories contain high-quality typefaces; risk and responsibility profiles differ by license.
 
 **Scope notes**
 
-- Open‑source licenses may include attribution or termination clauses
+- Open-source licenses may include attribution or termination clauses
 
 ---
 
@@ -93,3 +93,54 @@ Flattened outputs generally do not constitute distribution, while extractable fo
 **Scope notes**
 
 - Distribution boundaries depend on license terms
+
+---
+
+## Fonts used in distributable templates require template-specific licensing
+
+**Canonical assertion**
+
+Using fonts in templates that are sold or distributed to others requires a license that explicitly covers template distribution.
+
+**Clarification**
+
+Fonts embedded in editable template files are transferred to downstream users who further customize and deploy them. This constitutes distribution and exceeds the scope of standard desktop or design licenses. The appropriate license depends on the type of template and how it is distributed.
+
+**Scope notes**
+
+- Flattened, non-editable outputs differ from editable template files in licensing terms
+- Both the template creator and the downstream publisher may have licensing obligations
+
+---
+
+## Creating flat or vectorized logos is generally permitted under standard design licenses
+
+**Canonical assertion**
+
+Creating and distributing flat or vectorized logos is generally permitted under standard design licenses, provided the font is not embedded in an extractable form within the logo file.
+
+**Clarification**
+
+Rendering glyphs into fixed visual output does not transfer the font software. Embedding the font file or extractable outlines in a logo file may exceed license scope. Some foundries additionally restrict use of their fonts for logo creation.
+
+**Scope notes**
+
+- Editable files containing live font data differ from flattened outputs
+- License terms and foundry-specific restrictions should be verified for logo use cases
+
+---
+
+## Multi-brand font use requires licensing scoped to all brands and deployments
+
+**Canonical assertion**
+
+Using fonts across multiple brands requires licensing that explicitly covers each brand's scope of use and deployment.
+
+**Clarification**
+
+Standard consumer licenses are scoped to individuals, not organizations or brand portfolios. Coverage across teams, brands, and geographies typically requires enterprise-level licensing aligned to the full deployment scope.
+
+**Scope notes**
+
+- Team structure, geography, and output type all affect license requirements
+- Consumer a la carte licenses are generally insufficient for multi-brand coverage
