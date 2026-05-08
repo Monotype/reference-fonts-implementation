@@ -36,11 +36,11 @@ Licensing scope is based on how and where fonts are used, not simply where they 
 
 **Canonical assertion**
 
-Open-source and commercial fonts differ primarily in licensing obligations and support, not inherent design quality.
+Open-source and commercial font software differ primarily in licensing obligations and support.
 
 **Clarification**
 
-Both categories contain high-quality typefaces; risk and responsibility profiles differ by license.
+Risk and responsibility profiles differ by license type; open-source font software may carry attribution requirements, use restrictions, or termination clauses that affect commercial deployment.
 
 **Scope notes**
 
