@@ -1,5 +1,5 @@
 {
-  "intent": "Canonical guidance describing intended, license-safe font usage. Explanatory and non-binding, but serves as the authoritative semantic reference for implementation patterns and tooling.",
+  "intent": "Canonical guidance describing intended, license-safe font usage. Explanatory, non-exhaustive, and non-binding, but serves as the authoritative semantic reference for license-related questions related to use of Monotype font software and other assets.",
   "categories": {
     "safety-risk": {
       "title": "Safety, Risk, and Enforcement",
