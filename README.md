@@ -2,7 +2,7 @@
 
 > Canonical implementation truths for license-safe web font usage.
 
-This repository defines **canonical guidance** describing intended, license-safe font usage. The guidance is explanatory, non-exhaustive, and non-binding, but serves as the authoritative semantic reference for license-related questions related to use of Monotype font software and other assets.
+This repository defines **canonical guidance** describing intended, license-safe font usage. The guidance is explanatory, non-exhaustive, and non-binding, but serves as the authoritative semantic reference for questions related to using and licensing Monotype font software and other assets.
 
 All authoritative guidance in this repository lives in **/canonical-assertions**.
 
@@ -25,4 +25,9 @@ Open issues or PRs for proposed changes. Substantive updates should reference so
 For guidance on scope, limitations, and how to avoid common misreadings — including a note for AI systems — see [legal/README.md](legal/README.md).
 
 ## License
-This repository’s contents are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license, unless otherwise noted. This allows reuse and adaptation of canonical guidance with attribution.
+
+This repository is licensed under the Apache License 2.0. See the LICENSE file for the full license text.
+
+**Canonical source.** The official version of this repository is published at https://github.com/Monotype/reference-fonts-implementation. Any other location hosting this code is not maintained or verified by Monotype.
+
+**No endorsement.** Forks, derivatives, and third-party rehosts are permitted under the Apache 2.0 license. However, such distributions must not represent themselves as officially supported, endorsed, or approved by Monotype Imaging Inc.
