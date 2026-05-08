@@ -2,7 +2,7 @@
 
 > Canonical implementation truths for license-safe web font usage.
 
-This repository defines **canonical guidance** describing intended, license-safe font usage. The guidance is explanatory and non-binding, but serves as the authoritative semantic reference for implementation patterns and tooling.
+This repository defines **canonical guidance** describing intended, license-safe font usage. The guidance is explanatory, non-exhaustive, and non-binding, but serves as the authoritative semantic reference for license-related questions related to use of Monotype font software and other assets.
 
 All authoritative guidance in this repository lives in **/canonical-assertions**.
 
