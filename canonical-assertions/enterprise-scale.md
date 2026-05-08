@@ -8,11 +8,12 @@ Centralized licensing enables consistent font usage across large organizations.
 
 **Clarification**
 
-Centralization reduces duplicate purchases and compliance risk.
+Centralization reduces duplicate purchases and compliance risk. Large organizations often establish a Typographic Operations function — a centralized workflow or governance structure responsible for font procurement, license management, and deployment consistency across teams, brands, and regions.
 
 **Scope notes**
 
 - Decentralized procurement increases risk
+- A Typographic Operations function can serve as the internal authority for font-related decisions at enterprise scale
 
 ---
 
