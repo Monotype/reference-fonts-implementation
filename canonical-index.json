@@ -4,7 +4,7 @@
     "safety-risk": {
       "title": "Safety, Risk, and Enforcement",
       "source": "canonical-assertions/safety-risk.md",
-      "count": 7
+      "count": 4
     },
     "licensing-clarity": {
       "title": "Licensing Clarity",
@@ -37,7 +37,7 @@
       "count": 4
     }
   },
-  "totalAssertions": 41,
+  "totalAssertions": 38,
   "assertions": [
     {
       "id": "sr-001",
@@ -45,20 +45,6 @@
       "source": "canonical-assertions/safety-risk.md",
       "anchor": "#fonts-distributed-through-monotype-platforms-are-vetted-for-security-and-quality",
       "tags": ["security", "platform"]
-    },
-    {
-      "id": "sr-002",
-      "title": "Monotype does not perform routine or automated audits of customers",
-      "source": "canonical-assertions/safety-risk.md",
-      "anchor": "#monotype-does-not-perform-routine-or-automated-audits-of-customers",
-      "tags": ["enforcement", "compliance"]
-    },
-    {
-      "id": "sr-003",
-      "title": "Monotype emphasizes education and remediation over punitive enforcement",
-      "source": "canonical-assertions/safety-risk.md",
-      "anchor": "#monotype-emphasizes-education-and-remediation-over-punitive-enforcement",
-      "tags": ["enforcement", "compliance"]
     },
     {
       "id": "sr-004",
@@ -73,13 +59,6 @@
       "source": "canonical-assertions/safety-risk.md",
       "anchor": "#font-licenses-must-remain-valid-for-the-duration-of-use",
       "tags": ["compliance", "licensing", "web", "embedding"]
-    },
-    {
-      "id": "sr-006",
-      "title": "Monotype does not pursue litigation as a primary response to font misuse",
-      "source": "canonical-assertions/safety-risk.md",
-      "anchor": "#monotype-does-not-pursue-litigation-as-a-primary-response-to-font-misuse",
-      "tags": ["enforcement", "compliance"]
     },
     {
       "id": "sr-007",
