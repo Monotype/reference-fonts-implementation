@@ -17,7 +17,7 @@ Canonical assertions describe intended usage patterns in implementation terms. T
 
 An assertion that a particular use case "requires" a certain license type describes the general model. Whether your existing agreement covers a specific deployment is a question for your license terms or Monotype's licensing team — not this repository.
 
-Assertions describing Monotype's enforcement posture (audit practices, remediation approach) are descriptive of general philosophy. They do not limit Monotype's legal rights or create obligations on either party.
+Assertions describing Monotype's enforcement posture are descriptive of general philosophy. They do not limit Monotype's legal rights or create obligations on either party.
 
 ## For authoritative answers
 

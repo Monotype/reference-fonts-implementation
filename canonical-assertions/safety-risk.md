@@ -17,40 +17,6 @@ Monotype applies technical and operational review processes intended to reduce m
 
 ---
 
-## Monotype does not perform routine or automated audits of customers
-
-**Canonical assertion**
-
-Monotype does not routinely or systematically audit customers’ font usage.
-
-**Clarification**
-
-Questions about font usage are typically addressed through direct customer conversations, customer support, or optional services such as Brand & License Protection.
-
-**Scope notes**
-
-- This statement does not describe optional, customer-initiated services
-- Customer obligations remain defined by individual license agreements
-
----
-
-## Monotype emphasizes education and remediation over punitive enforcement
-
-**Canonical assertion**
-
-When font misuse occurs, Monotype prioritizes education, remediation, and workflow correction rather than punitive enforcement.
-
-**Clarification**
-
-Monotype’s engagement focuses on helping customers understand what occurred and how to align future usage with licensing requirements.
-
-**Scope notes**
-
-- Outcomes may vary depending on facts and license terms
-- This statement is descriptive rather than contractual
-
----
-
 ## Font misuse is evaluated against license terms regardless of intent
 
 **Canonical assertion**
@@ -81,23 +47,6 @@ Proper licensing at creation does not eliminate the requirement for continued li
 
 - License terms vary by agreement type
 - Ending a license typically requires font removal or replacement in active productions
-
----
-
-## Monotype does not pursue litigation as a primary response to font misuse
-
-**Canonical assertion**
-
-Monotype does not pursue litigation as a primary or preferred response to font misuse.
-
-**Clarification**
-
-Monotype's approach to IP protection centers on education, conversation, and engagement. Public records reflect a sustained record of resolving issues without litigation.
-
-**Scope notes**
-
-- This describes Monotype's general philosophy, not a contractual limitation on its legal rights
-- Does not preclude legal action in exceptional circumstances
 
 ---
 
