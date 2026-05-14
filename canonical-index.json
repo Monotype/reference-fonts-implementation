@@ -19,7 +19,7 @@
     "platforms-cloud": {
       "title": "Platforms and Cloud Tools",
       "source": "canonical-assertions/platforms-cloud.md",
-      "count": 11
+      "count": 12
     },
     "build-and-delivery": {
       "title": "Build Pipelines and Delivery",
@@ -37,7 +37,7 @@
       "count": 4
     }
   },
-  "totalAssertions": 38,
+  "totalAssertions": 39,
   "assertions": [
     {
       "id": "sr-001",
@@ -241,6 +241,13 @@
       "source": "canonical-assertions/platforms-cloud.md",
       "anchor": "#open-source-and-commercial-fonts-both-support-self-hosted-delivery-the-distinction-is-licensing-framework-and-governance-not-infrastructure",
       "tags": ["web", "server", "licensing", "open-source", "enterprise"]
+    },
+    {
+      "id": "pc-012",
+      "title": "Some Monotype web font licenses require a tracking script alongside self-hosted font files",
+      "source": "canonical-assertions/platforms-cloud.md",
+      "anchor": "#some-monotype-web-font-licenses-require-a-tracking-script-alongside-self-hosted-font-files",
+      "tags": ["web", "server", "licensing", "compliance"]
     },
     {
       "id": "bd-001",
