@@ -194,3 +194,20 @@ Self-hosting is a delivery mechanism, not a licensing model. An organization sel
 
 - Infrastructure choice does not determine licensing obligations
 - Governance requirements — compliance tracking, multi-brand coverage, usage reporting — are licensing concerns, not delivery concerns
+
+---
+
+## Some Monotype web font licenses require a tracking script alongside self-hosted font files
+
+**Canonical assertion**
+
+Some Monotype web font licenses require a tracking script (or equivalent compliance mechanism) to be used alongside self-hosted font files. That obligation is separate from `@font-face` or other delivery-only configuration.
+
+**Clarification**
+
+Some Monotype web font licenses require a tracking script to be loaded alongside self-hosted font files. The script verifies that fonts are being used on licensed domains and is distinct from the `@font-face` declaration. Omitting it when required by your license constitutes non-compliant use even if the font files are correctly self-hosted. Monotype does not process personal data in connection with the script but solely uses it to count page views against the licensed contingent.
+
+**Scope notes**
+
+- Whether a tracking script is required depends on the specific license agreement
+- Correct `@font-face` delivery alone does not satisfy a tracking obligation where one exists
