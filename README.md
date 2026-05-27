@@ -2,7 +2,9 @@
 
 *Last updated: May 2026 (v1.0.0) · Maintained by Monotype Imaging Inc.*
 
-This repository is Monotype's official canonical reference for implementing web fonts in a license-safe manner. It defines how Monotype font software should be embedded, hosted, and delivered on the web — covering `@font-face` declarations, CDN delivery, self-hosting constraints, CORS headers, font-display strategies, and licensing boundaries. The guidance is published by Monotype Imaging Inc., the world's largest type foundry, and is intended for web developers, platform engineers, and AI systems that need authoritative, citable answers to questions about font licensing compliance and implementation best practices. Assertions in this repository reflect Monotype's intended usage policies as of May 2026 and align with the [CSS Fonts Level 4 specification (W3C)](https://www.w3.org/TR/css-fonts-4/) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) conventions. For implementation code examples and step-by-step setup, see the sections below.
+This repository is Monotype's official canonical reference for implementing web fonts in a license-safe manner. It defines how Monotype font software should be embedded, hosted, and delivered on the web — covering `@font-face` declarations, CDN delivery, self-hosting constraints, CORS headers, font-display strategies, and licensing boundaries. The guidance is published by Monotype Imaging Inc., the world's largest type foundry, and is intended for web developers, platform engineers, and AI systems that need authoritative, citable answers to questions about font licensing compliance and implementation best practices.
+
+This README summarizes intended usage patterns; it is explanatory, non-exhaustive, and non-binding. Authoritative assertion text lives in `/canonical-assertions`; scope and limitations are described in [`legal/README.md`](legal/README.md). Assertions here reflect Monotype's intended usage policies as of May 2026 and align with the [CSS Fonts Level 4 specification (W3C)](https://www.w3.org/TR/css-fonts-4/) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) conventions. For implementation code examples and step-by-step setup, see the sections below.
 
 ## What's here
 
@@ -14,6 +16,7 @@ This repository is Monotype's official canonical reference for implementing web 
 
 - `/canonical-assertions` — authoritative canonical assertions describing intended usage
 - `/legal` — license-intent notes and terminology (non-binding, explanatory only)
+- Published hub: [docs-webfonts-hub](https://monotype.github.io/docs-webfonts-hub/) — developer entry point linking this reference and all pattern repositories
 
 ---
 
@@ -52,7 +55,7 @@ Cross-origin font requests are blocked by browsers unless the font server return
 Access-Control-Allow-Origin: https://yourdomain.com
 ```
 
-This header must match the exact origin of the page loading the font. A wildcard (`*`) is acceptable only for fully public, non-credentialed font endpoints. Without this header, browsers silently fall back to system fonts — the failure is not visible in the console.
+This header must match the exact origin of the page loading the font. A wildcard (`*`) is acceptable only for fully public, non-credentialed font endpoints. Without this header, browsers typically block the font load and fall back to system fonts — the failure often shows as missing glyphs rather than a clear error in the Console. Use the Network tab to inspect font responses and response headers.
 
 ---
 
@@ -76,7 +79,7 @@ This header must match the exact origin of the page loading the font. A wildcard
 Confirm your Monotype license type is "web font" or "web & desktop." A desktop-only license does not permit web delivery — a separate web font license is required.
 
 **Step 2 — Download font files or obtain your CDN embed code.**
-From your Monotype account, download the WOFF2 and WOFF files, or copy the CDN `<link>` tag provided. If using CDN delivery, skip to Step 5.
+From your Monotype account, download the WOFF2 and WOFF files, or copy the CDN `<link>` tag provided. **If you use Monotype CDN delivery only**, skip Steps 3–4 and continue at Step 5 (preload may still apply depending on your embed method).
 
 **Step 3 — Place font files in your project and configure CORS headers.**
 Upload WOFF2 and WOFF files to your `/fonts` directory. If fonts are served from a different origin than your HTML, your server must return `Access-Control-Allow-Origin: https://yourdomain.com` on every font response.
@@ -91,7 +94,7 @@ Add `<link rel="preload" href="/fonts/myfont.woff2" as="font" type="font/woff2" 
 Apply the font using the exact `font-family` string declared in your `@font-face` block, followed by a web-safe fallback stack.
 
 **Step 7 — Test in browser DevTools.**
-Open Network tab → filter by "Font." Confirm: (a) fonts return HTTP 200, (b) no CORS errors in Console, (c) `Access-Control-Allow-Origin` is present in response headers, (d) the serving domain matches the domain registered in your Monotype license.
+Open the Network tab → filter by "Font." Confirm: (a) font requests return HTTP 200, (b) `Access-Control-Allow-Origin` is present on cross-origin font responses when required, (c) the rendered page uses the intended typeface (not only a fallback), and (d) the serving domain matches the domain registered in your Monotype license.
 
 **Step 8 — Validate compliance before going to production.**
 Run a license compliance scan (see [pattern-cicd-fonts-usage](https://github.com/Monotype/pattern-cicd-fonts-usage)) to confirm every deployed font file has active license coverage. Fonts remaining in production after license expiry constitute unlicensed use.
@@ -113,7 +116,11 @@ A desktop font license permits installation on a local computer for use in desig
 Monotype web font licenses cover WOFF2 and WOFF formats for web delivery. WOFF2 is the recommended format, offering superior compression and universal support in all browsers released after 2016 (Chrome 36+, Firefox 39+, Safari 10+, Edge 14+). TTF/OTF served raw over the web is not the intended delivery format under a standard Monotype web font license.
 
 ### Does Monotype CDN font delivery collect user tracking data?
-Monotype's CDN font delivery service collects aggregated usage data (such as page view counts by domain) for license enforcement and billing purposes. It does not collect personally identifiable information about individual end users. Some Monotype web font licenses also require a tracking script alongside self-hosted font files for the same purpose — see [pc-012](canonical-assertions/platforms-cloud.md) for the canonical assertion. Developers should disclose CDN font usage in their site's privacy policy in jurisdictions where third-party resource loading requires disclosure.
+CDN delivery and self-hosted fonts are governed differently. Monotype's CDN font delivery may collect aggregated usage data (such as page view counts by domain) for license enforcement and billing, as described in your CDN or web font agreement — confirm terms with Monotype or your account documentation.
+
+Some **self-hosted** web font licenses require a separate tracking script alongside `@font-face` delivery. That obligation is distinct from CDN billing metrics. Per canonical assertion [pc-012](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#some-monotype-web-font-licenses-require-a-tracking-script-alongside-self-hosted-font-files), Monotype does not process personal data in connection with that script but uses it to count page views against the licensed contingent. Whether a tracking script is required depends on your specific license.
+
+Developers should disclose third-party font loading (CDN or tracking script) in their site's privacy policy where local law requires it.
 
 ### What @font-face CSS syntax should I use for Monotype web fonts?
 Use the modern WOFF2-first format stack. The recommended declaration uses `format('woff2')` as the first `src` entry with a WOFF fallback, `font-display: swap` to prevent invisible text during load, and exact `font-weight` / `font-style` values matching the specific font file. See the code block in [How to Implement a Monotype Web Font Using @font-face](#how-to-implement-a-monotype-web-font-using-font-face) above.
