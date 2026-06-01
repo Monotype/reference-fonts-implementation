@@ -10,11 +10,11 @@ Assertions in `/canonical-assertions` state Monotype's intended usage as of May 
 
 ### What counts as an authorized embedding method
 
-Licensed web delivery uses `@font-face` (or an authorized Monotype CDN embed) to serve font data to browsers under a **web font license**. Desktop `.otf`/`.ttf` files licensed for print are not authorized for web embedding without a separate web font license. See [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
+Licensed web delivery uses `@font-face` (or an authorized Monotype CDN embed) to serve font data to browsers under a **web font license**. Desktop `.otf`/`.ttf` files licensed for print are usually not authorized for web embedding without a separate web font license. See [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
 
 ### Difference between desktop licensing and web font licensing
 
-A desktop license covers local design and print workflows. A web font license covers HTTP/HTTPS delivery to browsers, typically scoped by domain and/or page views. Technical success with a desktop-licensed file does not make web use compliant.
+A desktop license usually covers only local design and print workflows. A web font license covers HTTP/HTTPS delivery to browsers, typically scoped by domain and/or page views. Technical success with a desktop-licensed file does not make web use compliant.
 
 ## What's Here
 
@@ -180,7 +180,7 @@ WOFF2 offers strong compression (often ~30% smaller than WOFF) and is supported 
 
 ### What is the difference between a Monotype desktop font license and a web font license?
 
-A desktop font license permits installation on a local computer for use in design software and print output. It does not grant the right to distribute the font software by embedding the font in a website or serving it over HTTP/HTTPS to end users. A web font license covers delivery via `@font-face` to browsers and is typically scoped by monthly page views or domain. Using a desktop-licensed font for web embedding will usually be a license violation even if the technical delivery works.
+A desktop font license permits installation on a local computer for use in design software and print output. It usually does not grant the right to distribute the font software by embedding the font in a website or serving it over HTTP/HTTPS to end users. A web font license covers delivery via `@font-face` to browsers and is typically scoped by monthly page views or domain. Using a desktop-licensed font for web embedding will usually be a license violation even if the technical delivery works.
 
 ### Does Monotype CDN font delivery collect user tracking data?
 
