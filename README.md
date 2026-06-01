@@ -16,10 +16,6 @@ Licensed web delivery uses `@font-face` (or an authorized Monotype CDN embed) to
 
 A desktop license covers local design and print workflows. A web font license covers HTTP/HTTPS delivery to browsers, typically scoped by domain and/or page views. Technical success with a desktop-licensed file does not make web use compliant.
 
-### Using a font vs. distributing a font
-
-**Using** a font serves it to end users from infrastructure you control under your agreement. **Distributing** a font transfers binaries to other parties or uncontrolled paths — for example, public package registries or third-party CDNs that expose files outside your licensed domain. See [lc-006](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/licensing-clarity.md#using-a-font-differs-from-distributing-a-font) and [lc-005](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/licensing-clarity.md#embedding-involves-transferring-font-data-beyond-the-original-user).
-
 ## What's Here
 
 - `/canonical-assertions` — machine-readable canonical assertions (authoritative source text)
