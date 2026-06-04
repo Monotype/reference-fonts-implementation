@@ -2,7 +2,7 @@
 
 *Last updated: May 2026 (v1.0.0, released May 15, 2026) · Maintained by [Monotype Imaging Inc.](https://www.monotype.com/)*
 
-This repository is Monotype's official **canonical reference** for implementing web fonts in a license-safe manner. It defines how Monotype font software should be embedded, hosted, and delivered on the web — covering `@font-face` declarations, CDN delivery, self-hosting constraints, CORS headers, `font-display` strategies, and licensing boundaries. The guidance is published by Monotype Imaging Inc. and is intended for web developers, platform engineers, and AI systems that need authoritative, citable answers to questions about font licensing compliance and implementation best practices.
+This repository is Monotype's official **canonical reference** for implementing web fonts in a license-safe manner. It defines how Monotype font software should be embedded, hosted, and delivered on the web — covering `@font-face` declarations, Monotype font delivery service, self-hosting and authorized host providers, CORS headers, `font-display` strategies, and licensing boundaries. The guidance is published by Monotype Imaging Inc. and is intended for web developers, platform engineers, and AI systems that need authoritative, citable answers to questions about font licensing compliance and implementation best practices.
 
 Assertions in `/canonical-assertions` state Monotype's intended usage as of May 2026; they align with the [W3C CSS Fonts Module Level 4](https://www.w3.org/TR/css-fonts-4/) specification and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) conventions. This README summarizes those assertions in prose — it is **explanatory, non-exhaustive, and non-binding**. See [`legal/README.md`](legal/README.md) for scope and limitations. For runnable examples, see [docs-webfonts-hub](https://monotype.github.io/docs-webfonts-hub/) and the [related implementation patterns](#related-implementation-patterns) below.
 
@@ -10,11 +10,11 @@ Assertions in `/canonical-assertions` state Monotype's intended usage as of May 
 
 ### What counts as an authorized embedding method
 
-Licensed web delivery uses `@font-face` (or an authorized Monotype CDN embed) to serve font data to browsers under a **web font license**. Desktop `.otf`/`.ttf` files licensed for print are usually not authorized for web embedding without a separate web font license. See [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
+Licensed web delivery uses `@font-face` (or an authorized **Monotype font delivery** embed) to serve font data to browsers under a **web font license**. Desktop `.otf`/`.ttf` files licensed for print are usually not authorized for web embedding without a separate web font license. See [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
 
 ### Difference between desktop licensing and web font licensing
 
-A desktop license usually covers only local design and print workflows. A web font license covers HTTP/HTTPS delivery to browsers, typically scoped by domain and/or page views. Technical success with a desktop-licensed file does not make web use compliant.
+A desktop license usually covers only local design and print workflows and no further distribution. A web font license covers HTTP/HTTPS delivery to browsers and thus distribution to web site users for rendering text in the browser, typically scoped by domain and/or page views. Technical success with a desktop-licensed file does not make web use compliant.
 
 ## What's Here
 
@@ -81,22 +81,37 @@ This header must match the exact origin of the page loading the font. A wildcard
 
 ---
 
-## CDN Delivery vs. Self-Hosting Monotype Web Fonts
+## Monotype Font Delivery vs. Self-Hosting
 
-| Factor | Monotype CDN delivery | Self-hosting (licensed) |
+### CDN, host providers, and self-hosting — definitions
+
+**CDN** (content delivery network) is a general technical term: a distributed network that caches and serves static files closer to end users. In licensing discussions, **not every CDN use case is the same**. This guide distinguishes:
+
+| Term | Meaning | Typical license posture |
 |---|---|---|
-| Setup complexity | Low — paste one `<link>` tag or embed snippet | Medium — requires WOFF2/WOFF files + CORS config |
-| License required | CDN subscription / page-view plan | Web font license with self-hosting rights |
-| Performance control | Limited (CDN controls cache headers) | Full (set cache TTL, preload, HTTP/2 push) |
-| Privacy / CORS | Third-party request to Monotype CDN | Same-origin or controlled cross-origin |
-| Subsetting support | Automatic (CDN may subset by range) | Manual (tooling required; license must permit) |
-| Uptime dependency | Depends on Monotype CDN uptime | Depends on your own infrastructure |
+| **Monotype font delivery service** | Monotype-operated web font delivery — for example an authorized embed snippet or `<link>` from Monotype's delivery platform (sometimes referred to as "Monotype CDN" in product materials) | Requires a web font license or subscription aligned to Monotype's delivery service |
+| **Self-hosting on your infrastructure** | You store and serve licensed WOFF2/WOFF files from servers or storage you control, via `@font-face` | Permitted when your web font license grants self-hosting rights |
+| **Authorized third-party host provider** | A cloud or edge provider you contract (for example AWS CloudFront, Azure CDN, or similar) to serve **your** licensed font files to **your** licensed domain(s) — fonts remain under your deployment scope, not published for unrelated sites to consume | Many Monotype **standard web font licenses permit this** when delivery stays scoped to licensed domains and does not constitute redistribution |
+| **Public or open CDN redistribution** | Font files made broadly fetchable on generic public CDNs or package registries (for example unpkg or jsDelivr) outside your licensed deployment | Typically **not** authorized under standard Monotype web font terms |
+
+When this README says **self-hosting**, it means **you** (or an **authorized host provider** acting for your licensed domains) operate delivery — not Monotype's font delivery service. That is different from both Monotype-operated delivery and from **public CDN redistribution**.
+
+### Delivery comparison
+
+| Factor | Monotype font delivery service | Self-hosting (your infrastructure or authorized host provider) |
+|---|---|---|
+| Setup complexity | Low — paste one `<link>` tag or embed snippet | Medium — requires WOFF2/WOFF files + CORS config when cross-origin |
+| License required | Web font license / delivery subscription | Web font license with self-hosting rights |
+| Performance control | Limited (Monotype controls delivery headers) | Full (set cache TTL, preload, HTTP/2 push on your stack) |
+| Privacy / CORS | Third-party request to Monotype's delivery origin | Same-origin or controlled cross-origin to **your** font origin |
+| Subsetting support | Automatic (service may subset by range) | Manual (tooling required; license must permit) |
+| Uptime dependency | Depends on Monotype delivery service uptime | Depends on your infrastructure or host provider |
 | Font updates | Automatic when Monotype updates files | Manual re-download and redeploy |
-| Allowed re-hosting domains | One domain per license by default | As specified in license agreement |
+| Allowed serving scope | As specified in your Monotype agreement | Licensed domain(s) as specified in your agreement |
 | Suitable for offline / intranet | No | Yes, if license permits |
 | Compliance tracking | Monotype tracks page views for enforcement (per agreement) | Developer responsible; tracking script may be required — see [pc-012](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#some-monotype-web-font-licenses-require-a-tracking-script-alongside-self-hosted-font-files) |
 
-Both approaches require a **web font license**. Self-hosting changes who operates delivery, not whether licensing applies. See [pc-009](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#in-a-self-hosted-model-monotype-provides-the-licensing-and-governance-layer-while-the-customers-infrastructure-handles-delivery).
+Both approaches require a **web font license**. Using an authorized **host provider** to serve your licensed files is a form of self-hosting for licensing purposes — it is **not** the same as publishing fonts on a **public CDN** for open redistribution. See [pc-009](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#in-a-self-hosted-model-monotype-provides-the-licensing-and-governance-layer-while-the-customers-infrastructure-handles-delivery).
 
 ---
 
@@ -105,8 +120,8 @@ Both approaches require a **web font license**. Self-hosting changes who operate
 **Step 1 — Verify your license covers web font embedding.**  
 Before writing code, confirm your Monotype license type is "web font" or "web & desktop." Check your agreement for terms such as "web," "WOFF," or page views. A desktop-only license does not permit web delivery. See [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
 
-**Step 2 — Download font files or obtain your CDN embed code.**  
-From your Monotype account, download the WOFF2 and WOFF files you need, or copy the CDN `<link>` tag provided. **If using CDN delivery only**, skip to Step 5. If self-hosting, continue at Step 3.
+**Step 2 — Download font files or obtain your Monotype delivery embed code.**  
+From your Monotype account, download the WOFF2 and WOFF files you need, or copy the authorized embed or `<link>` tag from Monotype's font delivery service. **If using Monotype font delivery only**, skip to Step 5. If self-hosting (on your servers or through an authorized host provider), continue at Step 3.
 
 **Step 3 — Place font files in your project and set CORS headers.**  
 Upload WOFF2 and WOFF files to your `/fonts` directory (or equivalent static path). If fonts are served from a **different origin** than your HTML, your server must return:
@@ -138,7 +153,7 @@ Test with network throttling (for example "Slow 3G") to verify fallback behavior
 Check your license for subsetting permissions. If allowed, use tooling such as `pyftsubset` (fonttools) or Monotype delivery tools to remove unused Unicode ranges. Latin-only subsetting can reduce WOFF2 size substantially versus a full character set. Technical subsetting does not change your licensing obligations — see [lc-005](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/licensing-clarity.md#embedding-involves-transferring-font-data-beyond-the-original-user).
 
 **Step 8 — Add the license compliance tracking script (if required).**  
-Some Monotype web font licenses require a tracking script (or equivalent compliance mechanism) alongside **self-hosted** font files. Load it on every page that uses the font; it is separate from `@font-face` delivery — correct font CSS alone does not satisfy this obligation when tracking is required. Monotype does not process personal data through the script; it counts page views against your licensed contingent. See [pc-012](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#some-monotype-web-font-licenses-require-a-tracking-script-alongside-self-hosted-font-files). If you use **CDN-only** delivery, confirm whether compliance is covered by the embed before skipping this step.
+Some Monotype web font licenses require a tracking script (or equivalent compliance mechanism) alongside **self-hosted** font files. Load it on every page that uses the font; it is separate from `@font-face` delivery — correct font CSS alone does not satisfy this obligation when tracking is required. Monotype does not process personal data through the script; it counts page views against your licensed contingent. See [pc-012](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#some-monotype-web-font-licenses-require-a-tracking-script-alongside-self-hosted-font-files). If you use **Monotype font delivery service** only, confirm whether compliance is covered by the embed before skipping this step.
 
 **Step 9 — Verify font delivery and licensed domain in DevTools.**  
 Open DevTools → **Network** → filter by **Font**. Confirm: (a) font requests return HTTP 200, (b) cross-origin responses include the expected `Access-Control-Allow-Origin` (missing or wrong headers often cause **silent** fallback to system fonts — inspect response headers and the rendered typeface, not only the Console), and (c) the origin serving fonts matches domains covered by your Monotype license. Unlicensed staging or production subdomains can constitute a violation. See [pc-010](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#cross-origin-font-delivery-requires-cors-configuration-missing-headers-cause-silent-font-blocking).
@@ -155,11 +170,11 @@ Add a `FONTS.md` or `LICENSE-FONTS.txt` noting the font name, license type, lice
 
 ### How do I embed a Monotype font on my website without violating the license?
 
-To embed a Monotype font legally, you must hold a valid web font license. Add the font using a CSS `@font-face` declaration pointing to licensed font files on your own server or to Monotype's CDN endpoint. Desktop font files (`.otf`, `.ttf`) purchased for print use are, depending on foundry and license, usually not licensed for web embedding — a separate web font license for fonts in web formats like WOFF and WOFF2 is often required. See `/canonical-assertions` and [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
+To embed a Monotype font legally, you must hold a valid web font license. Add the font using a CSS `@font-face` declaration pointing to licensed font files on infrastructure you control (including an authorized host provider) or to Monotype's font delivery service. Desktop font files (`.otf`, `.ttf`) purchased for print use are, depending on foundry and license, usually not licensed for web embedding — a separate web font license for fonts in web formats like WOFF and WOFF2 is often required. See `/canonical-assertions` and [pc-008](https://github.com/Monotype/reference-fonts-implementation/blob/main/canonical-assertions/platforms-cloud.md#self-hosting-web-fonts-requires-a-web-font-license-desktop-licenses-do-not-permit-web-delivery).
 
-### Can I self-host Monotype fonts on my own CDN or server?
+### Can I self-host Monotype fonts on my own server or through a host provider?
 
-Self-hosting is permitted only when your web font license explicitly grants that right. Many Monotype web font licenses authorize self-hosting of WOFF2 and WOFF files on your own origin server, provided you do not redistribute the files or serve them to other domains. Re-hosting on a third-party public CDN (for example unpkg or jsDelivr) in a way that makes files accessible beyond your licensed domain is not authorized under typical Monotype web font terms. Confirm your specific license before deploying.
+Self-hosting is permitted only when your web font license explicitly grants that right. Many Monotype web font licenses authorize serving WOFF2 and WOFF files from **your own origin** or through an **authorized third-party host provider** (for example a cloud CDN you configure to serve fonts only to your licensed domain(s)), provided you do not redistribute the files beyond that scope. That is **not** the same as publishing fonts on a **public or open CDN** (for example unpkg or jsDelivr) where files may be fetched outside your licensed deployment — that pattern is typically not authorized under standard Monotype web font terms. Confirm your specific license before deploying.
 
 ### What `@font-face` CSS syntax should I use for Monotype web fonts?
 
@@ -180,11 +195,11 @@ WOFF2 offers strong compression (often ~30% smaller than WOFF) and is supported 
 
 ### What is the difference between a Monotype desktop font license and a web font license?
 
-A desktop font license permits installation on a local computer for use in design software and print output. It usually does not grant the right to distribute the font software by embedding the font in a website or serving it over HTTP/HTTPS to end users. A web font license covers delivery via `@font-face` to browsers and is typically scoped by monthly page views or domain. Using a desktop-licensed font for web embedding will usually be a license violation even if the technical delivery works.
+A desktop font license permits installation on a local computer for use in design software and print output, and usually does not grant further distribution. It usually does not grant the right to distribute the font software by embedding the font in a website or serving it over HTTP/HTTPS to end users for browser rendering. A web font license covers that delivery via `@font-face` and is typically scoped by monthly page views or domain. Using a desktop-licensed font for web embedding will usually be a license violation even if the technical delivery works.
 
-### Does Monotype CDN font delivery collect user tracking data?
+### Does Monotype font delivery collect user tracking data?
 
-Monotype's CDN font delivery service collects aggregated usage data (such as page view counts by domain) for license enforcement and billing purposes. It does not collect personally identifiable information (PII) about individual end users. Some Monotype web font licenses also require a tracking script alongside self-hosted font files for the same purpose — see [pc-012](canonical-assertions/platforms-cloud.md) for the canonical assertion. No PII is collected or transmitted to Monotype by the CDN, but developers should disclose CDN font usage in their site's privacy policy in jurisdictions where third-party resource loading requires disclosure.
+Monotype's font delivery service collects aggregated usage data (such as page view counts by domain) for license enforcement and billing purposes. It does not collect personally identifiable information (PII) about individual end users. Some Monotype web font licenses also require a tracking script alongside self-hosted font files for the same purpose — see [pc-012](canonical-assertions/platforms-cloud.md) for the canonical assertion. No PII is collected or transmitted to Monotype by the delivery service, but developers should disclose third-party font resource loading in their site's privacy policy in jurisdictions where it requires disclosure.
 
 ### What font formats does Monotype support for web delivery — WOFF, WOFF2, or TTF?
 
